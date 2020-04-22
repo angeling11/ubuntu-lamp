@@ -1,6 +1,6 @@
 # Simple LAMP Vagrant box
 
-Simple LAMP environment inside Vagrant box. Based on official `ubuntu/bionic64` box.
+Simple LAMP environment inside Vagrant box. Based on official `ubuntu/xenial64` box.
 
 ## In the box:
 
@@ -23,14 +23,12 @@ Assuming that VirtualBox (https://www.virtualbox.org/) and Vagrant (https://www.
 
 1. Clone or download + unzip repository 
 2. In your terminal go to the directory and type `vagrant up`
-3. Wait (you may be prompt for system admin password)
+3. Wait
 4. Enjoy
 
 ## How to use:
 
-After setup is finished, go to http://192.168.33.10/ in your browser. You should see the `phpinfo()` page.
-`./www/`(or `/vagrant/www/` inside the box) is your "DocumentRoot". I recommend to keep your projects in the `projects/` folder. And make symlinks from `www/` to `public_html` folder of your project. But it’s up to you.
+After setup is finished, go to http://localhost:8080/ in your browser. You should see the `phpinfo()` page.
+`./` is your "DocumentRoot". I recommend to keep your projects in the `projects/` folder. And make symlinks from `/` to `public_html` folder of your project. But it’s up to you.
 
-`phpMyAdmin` is accessible at http://192.168.33.10/phpmyadmin/ Username is 'root', password - '12345678'
-
-*tested on Mac OS X 10.12.6 (Sierra) with VirtualBox v6.0.14 and Vagrant 2.2.6
+`phpMyAdmin` is accessible at http://localhost:8080/phpmyadmin/ Username is 'root', password - 'toor'

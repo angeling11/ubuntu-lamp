@@ -1,26 +1,9 @@
 #!/usr/bin/env bash
 
 # Use single quotes instead of double quotes to make it work with special-character passwords
-PASSWORD='12345678'
-HOMEDIRFOLDER='www'
-PROJECTFOLDER='projects'
+PASSWORD='toor'
 
-# create project folder
-if [ -d "/var/www/html/${HOMEDIRFOLDER}" ];
-then
-	echo "/var/www/html/${HOMEDIRFOLDER} exists."
-else
-	sudo mkdir "/var/www/html/${HOMEDIRFOLDER}"
-fi
-
-if [ -d "/var/www/html/${PROJECTFOLDER}" ];
-then
-	echo "/var/www/html/${PROJECTFOLDER} exists."
-else
-	sudo mkdir "/var/www/html/${PROJECTFOLDER}"
-fi
-
-echo "<?php phpinfo(); ?>" > /var/www/html/${HOMEDIRFOLDER}/index.php
+echo "<?php phpinfo(); ?>" > /var/www/html/index.php
 
 # install PPA 'ondrej/php'. The PPA is well known, and is relatively safe to use.
 sudo apt-get install -y software-properties-common
@@ -57,8 +40,8 @@ sudo apt install -y phpmyadmin
 # setup hosts file
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
-    DocumentRoot "/var/www/html/${HOMEDIRFOLDER}"
-    <Directory "/var/www/html/${HOMEDIRFOLDER}">
+    DocumentRoot "/var/www/html/"
+    <Directory "/var/www/html/">
         AllowOverride All
         Require all granted
     </Directory>
